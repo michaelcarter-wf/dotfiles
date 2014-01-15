@@ -1,0 +1,55 @@
+#Use the slate application switcher
+#bind tab:cmd switch
+
+alias screen_laptop 0
+alias screen_wf_monitor 1
+
+alias top_left_quarter_laptop ${top_left_quarter} ${screen_laptop}
+alias top_half_laptop ${top_half} ${screen_laptop}
+alias top_right_quarter_laptop ${top_right_quarter} ${screen_laptop}
+alias left_half_laptop ${left_half} ${screen_laptop}
+alias full_screen_laptop ${full_screen} ${screen_laptop}
+alias right_half_laptop ${right_half} ${screen_laptop}
+alias bottom_left_quarter_laptop ${bottom_left_quarter} ${screen_laptop}
+alias bottom_half_laptop ${bottom_half} ${screen_laptop}
+alias bottom_right_quarter_laptop ${bottom_right_quarter} ${screen_laptop}
+
+alias top_left_quarter_wf_monitor ${top_left_quarter}${screen_wf_monitor}
+alias top_half_wf_monitor corner top-left resize:${horizontal_half_screen} ${screen_wf_monitor}
+alias top_right_quarter_wf_monitor corner top-right resize:${quarter_screen} ${screen_wf_monitor}
+alias left_half_wf_monitor corner top-left resize:${vertical_half_screen} ${screen_wf_monitor}
+alias full_screen_wf_monitor corner top-left resize:${whole_screen} ${screen_wf_monitor}
+alias right_half_wf_monitor corner top-right resize:${vertical_half_screen} ${screen_wf_monitor}
+alias bottom_left_quarter_wf_monitor corner bottom-left resize:${quarter_screen} ${screen_wf_monitor}
+alias bottom_half_wf_monitor corner bottom-left resize:${horizontal_half_screen} ${screen_wf_monitor}
+alias bottom_right_quarter_wf_monitor corner bottom-right resize:${quarter_screen} ${screen_wf_monitor}
+
+default wfDesk resolutions:1920x1200;1920x1080
+layout wfDesk 'Terminal'  ${left_half_laptop}
+layout wfDesk 'HipChat'  ${left_half_laptop}
+layout wfDesk 'Skype'  ${left_half_laptop}
+layout wfDesk 'Messages'  ${left_half_laptop}
+layout wfDesk 'Firefox'  ${right_half_laptop}
+layout wfDesk 'Spotify'  ${left_half_laptop}
+layout wfDesk 'Google Chrome'  ${right_half_laptop}
+layout wfDesk 'SourceTree'  ${full_screen_wf_monitor}
+layout wfDesk 'PyCharm'  ${full_screen_wf_monitor}
+#layout wfDesk 'HipChat' show #This isn't supported yet
+#,'PyCharm','Firefox'
+
+default laptop resolutions:1920x1200
+layout laptop 'Spotify' ${full_screen_laptop}
+layout laptop 'SourceTree' ${full_screen_laptop}
+layout laptop 'Firefox' ${right_half_laptop}
+layout laptop 'PyCharm' ${full_screen_laptop}
+layout laptop 'HipChat' ${left_half_laptop}
+layout laptop 'Skype' ${left_half_laptop}
+layout laptop 'Messages' ${left_half_laptop}
+layout laptop 'Terminal' ${left_half_laptop}
+layout laptop 'Google Chrome' ${full_screen_laptop}
+layout laptop 'Google Chrome' ${full_screen_laptop}
+
+#layout laptop 'Google Chrome' show #This isn't supported yet
+
+bind pad1:ctrl layout wfDesk
+bind pad2:ctrl layout laptop

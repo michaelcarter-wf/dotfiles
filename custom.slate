@@ -3,7 +3,10 @@
 
 alias screen_laptop 0
 alias screen_wf_monitor 1
+alias screen_home_office_left 0
+alias screen_home_office_right 1
 
+#LAPTOP
 alias top_left_quarter_laptop ${top_left_quarter} ${screen_laptop}
 alias top_half_laptop ${top_half} ${screen_laptop}
 alias top_right_quarter_laptop ${top_right_quarter} ${screen_laptop}
@@ -14,6 +17,7 @@ alias bottom_left_quarter_laptop ${bottom_left_quarter} ${screen_laptop}
 alias bottom_half_laptop ${bottom_half} ${screen_laptop}
 alias bottom_right_quarter_laptop ${bottom_right_quarter} ${screen_laptop}
 
+#WF MONITOR
 alias top_left_quarter_wf_monitor ${top_left_quarter}${screen_wf_monitor}
 alias top_half_wf_monitor corner top-left resize:${horizontal_half_screen} ${screen_wf_monitor}
 alias top_right_quarter_wf_monitor corner top-right resize:${quarter_screen} ${screen_wf_monitor}
@@ -24,6 +28,29 @@ alias bottom_left_quarter_wf_monitor corner bottom-left resize:${quarter_screen}
 alias bottom_half_wf_monitor corner bottom-left resize:${horizontal_half_screen} ${screen_wf_monitor}
 alias bottom_right_quarter_wf_monitor corner bottom-right resize:${quarter_screen} ${screen_wf_monitor}
 
+#HOME OFFICE LEFT MONITOR
+alias top_left_quarter_ho_left ${top_left_quarter}${screen_home_office_left}
+alias top_half_ho_left corner top-left resize:${horizontal_half_screen} ${screen_home_office_left}
+alias top_right_quarter_ho_left corner top-right resize:${quarter_screen} ${screen_home_office_left}
+alias left_half_ho_left corner top-left resize:${vertical_half_screen} ${screen_home_office_left}
+alias full_screen_home_office_left corner top-left resize:${whole_screen} ${screen_home_office_left}
+alias right_half_ho_left corner top-right resize:${vertical_half_screen} ${screen_home_office_left}
+alias bottom_left_quarter_ho_left corner bottom-left resize:${quarter_screen} ${screen_home_office_left}
+alias bottom_half_ho_left corner bottom-left resize:${horizontal_half_screen} ${screen_home_office_left}
+alias bottom_right_quarter_ho_left corner bottom-right resize:${quarter_screen} ${screen_home_office_left}
+
+#HOME OFFICE RIGHT MONITOR
+alias top_left_quarter_ho_right ${top_left_quarter}${screen_home_office_right}
+alias top_half_ho_right corner top-left resize:${horizontal_half_screen} ${screen_home_office_right}
+alias top_right_quarter_ho_right corner top-right resize:${quarter_screen} ${screen_home_office_right}
+alias left_half_ho_right corner top-left resize:${vertical_half_screen} ${screen_home_office_right}
+alias full_screen_ho_right corner top-left resize:${whole_screen} ${screen_home_office_right}
+alias right_half_ho_right corner top-right resize:${vertical_half_screen} ${screen_home_office_right}
+alias bottom_left_quarter_ho_right corner bottom-left resize:${quarter_screen} ${screen_home_office_right}
+alias bottom_half_ho_right corner bottom-left resize:${horizontal_half_screen} ${screen_home_office_right}
+alias bottom_right_quarter_ho_right corner bottom-right resize:${quarter_screen} ${screen_home_office_right}
+
+#WORK DESK LAYOUTS
 default wfDesk resolutions:1920x1200;1920x1080
 layout wfDesk 'Terminal'  ${left_half_laptop}
 layout wfDesk 'HipChat'  ${left_half_laptop}
@@ -37,6 +64,7 @@ layout wfDesk 'PyCharm'  ${full_screen_wf_monitor}
 #layout wfDesk 'HipChat' show #This isn't supported yet
 #,'PyCharm','Firefox'
 
+#LAPTOP LAYOUTS
 default laptop resolutions:1920x1200
 layout laptop 'Spotify' ${full_screen_laptop}
 layout laptop 'SourceTree' ${full_screen_laptop}
@@ -49,7 +77,23 @@ layout laptop 'Terminal' ${left_half_laptop}
 layout laptop 'Google Chrome' ${full_screen_laptop}
 layout laptop 'Google Chrome' ${full_screen_laptop}
 
+#HOME OFFICE LAYOUTS
+default homeOffice resolutions:2560x1440;2650x1440
+layout homeOffice 'Terminal'  ${left_half_ho_left}
+layout homeOffice 'HipChat'  ${left_half_ho_left}
+layout homeOffice 'Skype'  ${left_half_ho_left}
+layout homeOffice 'Messages'  ${left_half_ho_left}
+layout homeOffice 'Firefox'  ${right_half_ho_left}
+layout homeOffice 'Spotify'  ${left_half_ho_left}
+layout homeOffice 'Google Chrome'  ${right_half_ho_left}
+layout homeOffice 'SourceTree'  ${full_screen_ho_right}
+layout homeOffice 'PyCharm'  ${full_screen_ho_right}
+layout homeOffice 'Mail'  ${left_half_ho_left}
+#layout homeOffice 'HipChat' show #This isn't supported yet
+#,'PyCharm','Firefox'
+
 #layout laptop 'Google Chrome' show #This isn't supported yet
 
 bind pad1:ctrl layout wfDesk
 bind pad2:ctrl layout laptop
+bind pad3:ctrl layout homeOffice
